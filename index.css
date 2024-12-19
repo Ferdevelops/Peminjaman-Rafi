@@ -1,0 +1,406 @@
+/* index */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #71C9CE;
+}
+
+.navbar {
+    background: #71C9CE;
+    margin: 0;
+    padding: 20px 30px;
+    /* 20px untuk vartical dan 30 px untuk horizontal */
+}
+
+.sosmed {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: snow;
+}
+
+.menu {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li{
+    padding-left: 0;
+    margin-right: 10px;
+}
+
+.menu li a {
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.tombol {
+    display: none;
+    color: white;
+    font-size: 14pt;
+}
+
+.tombol:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .tombol {
+        display: block;
+    }
+
+    .menu.aktif {
+        display: inline-block;
+        position: absolute;
+        top: 64px;
+        background-color: black;
+        pad: 10px 20px;
+        right: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .menu.aktif li a {
+        padding: 10px;
+        display: inline-block !important;
+    }
+}
+
+.btn-primary {
+    background: #608BC1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #CBF1F5;
+}
+
+.btn-primary:active {
+    background: #71C9CE;
+}
+
+.welcome-section {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.welcome-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.welcome-text {
+    position: relative;
+    color: white;
+    z-index: 1;
+    text-align: center;
+}
+
+.welcome-text h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.tentang-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #A6E3E9;
+    height: 500px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-container {
+    flex: 1;
+    padding: 20px;
+    margin-left: 30px;
+}
+
+.text-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.produk-section {
+    padding: 50px;
+    background-color: #CBF1F5;
+    text-align: center;
+}
+
+.produk-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.produk-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.produk-card {
+    background-color: #A6AEBF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.produk-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+}
+
+.produk-card h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+.produk-card p {
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #555;
+}
+
+.produk-card:hover {
+    transform: translateY(-10px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Kontak kami */
+.contact-section {
+    padding: 50px;
+    background-color: #CBF1F5;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #4c74c9;
+}   
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #A6AEBF;
+    padding: 30px 50px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #000000;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize:none
+}
+
+/* peminjaman */
+.peminjaman-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.peminjaman-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.peminjaman-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.peminjaman-table th, .layanan-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.peminjaman-table th {
+    background-color:  #A6AEBF;
+    color: white;
+}
+
+.peminjaman-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.peminjaman-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.peminjaman-table td {
+    font-size: 1rem;
+}
+
+/* data peminjaman */
+.datapeminjaman-section {
+    padding: 50px;
+    text-align: center;
+}
+
+.datapeminjaman-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.datapeminjaman-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ddd;
+}
+
+.datapeminjaman-table th, .layanan-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.datapeminjaman-table th {
+    background-color: rgba(255, 70, 70, 0.795);
+    color: white;
+}
+
+.datapeminjaman-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.datapeminjaman-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.datapeminjaman-table td {
+    font-size: 1rem;
+}
+
+.btn-simpan {
+    background-color: #71C9CE; /* Hijau */
+    border: none; /* Tanpa border */
+    color: rgb(226, 92, 92); /* Teks putih */
+    padding: 10px 20px; /* Padding atas/bawah dan kiri/kanan */
+    text-align: center; /* Teks di tengah */
+    text-decoration: none; /* Tanpa garis bawah */
+    display: inline-block; /* Agar bisa diatur ukuran */
+    font-size: 16px; /* Ukuran font */
+    margin: 4px 2px; /* Margin di sekitar tombol */
+    cursor: pointer; /* Pointer saat hover */
+    border-radius: 5px; /* Sudut melengkung */
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+.btn-simpan:hover {
+    background-color: #608BC1; /* Warna lebih gelap saat hover */
+}
+
+.btn-primary:active {
+    background: #71C9CE;
+}
+
+.table-responsive {
+    overflow-x: auto; /* Menambahkan scroll horizontal jika tabel lebih lebar dari layar */
+}
+
+.datapeminjaman-table {
+    width: 100%; /* Mengatur lebar tabel 100% dari kontainer */
+    border-collapse: collapse; /* Menghilangkan jarak antara border sel */
+}
+
+.datapeminjaman-table th, 
+.datapeminjaman-table td {
+    padding: 15px; /* Menambahkan padding untuk sel */
+    border: 1px solid #ddd; /* Menambahkan border */
+    text-align: left; /* Mengatur teks ke kiri */
+}
+
+.datapeminjaman-table th {
+    background-color: #A6AEBF; /* Warna latar belakang untuk header */
+    color: white; /* Warna teks untuk header */
+}
+
+.datapeminjaman-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Warna latar belakang untuk baris genap */
+}
+
+.datapeminjaman-table tr:hover {
+    background-color: #f1f1f1; /* Warna latar belakang saat hover */
+}
+
+

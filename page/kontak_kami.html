@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+    <nav class="Navbar">
+        <div class="container">
+            <a>Kantor RPL</a>
+
+            <!-- Menu navigasi -->  
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#tentang">Tentang</a></li>
+                <li><a href="../index.html#comingsoon">Barang</a></li>
+                <li><a href="peminjaman.html">Daftar</a></li>
+                <li><a href="datapeminjaman.html">Data Peminjaman</a></li>
+                <li><a href="databarang.html">Data Barang</a></li>
+                <li><a href="#">Saran & Kritik</a></li>
+            </ul>
+            <!-- Tombol untuk menu responsif -->
+            <div class="tombol">&#9776;</div>
+        </div>
+    </nav>
+    
+    <section class="contact-section" id="contact">
+        <h2 style="color: white;">Kontak Kami</h2>
+        <form action="https://script.google.com/macros/s/AKfycbzj0A-rKLXBl__JATpiFeItlvvRgRuz9XUDydQMCmxGTnLEw4K3g4ChayU0u6IIuAaZEQ/exec" method="post" class="contact-form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="message">Saran & Kritik</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Kirim Pesan</button>
+        </form>
+    </section>
+    <script type="text/javascript">
+        // deklarasi tombol dan menu
+        const tombol = document.querySelector(".tombol");
+        const menu = document.querySelector(".menu");
+
+        // membuat event click
+        // pada saat tombol diclick, tambahkan class aktif pada class menu
+        // saat diklik lagi, maka class aktif dihilangkan dari class menu (toggle)
+        tombol.addEventListener("click", () => {
+            menu.classList.toggle("aktif");
+        });
+    </script>
+</body>
+</html>

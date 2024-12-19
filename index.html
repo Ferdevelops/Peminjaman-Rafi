@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<h lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan RPL</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+    <!-- Navigasi utama -->
+    <nav class="Navbar">
+        <div class="container">
+            <a>Kantor Jurusan RPL SMKN 8 Malang</a>
+
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#comingsoon">Barang</a></li>
+                <li><a href="page/peminjaman.html">Daftar</a></li>
+                <li><a href="page/datapeminjaman.html">Data Peminjaman</a></li>
+                <li><a href="page/databarang.html">Data Barang</a></li>
+                <li><a href="page/kontak_kami.html">Saran & Kritik</a></li>
+            </ul>
+            <div class="tombol">&#9776;</div>
+        </div>
+    </nav>
+    <section class="welcome-section" id="welcome">
+        <div class="welcome-text">
+            
+            <h1>Selamat Datang di Kantor Jurusan RPL SMKN 8 Malang</h1>
+            <p style="margin-bottom: 40px;">
+                Tempat peminjam barang atau ruangan jurusan RPL SMKN 8 Malang 
+            </p>
+            <!-- Tombol untuk melihat detail -->
+            <a href="#tentang" class="btn-primary">Lihat Detail</a>
+        </div>
+    </section>
+    <section class="tentang-section" id="tentang">
+        <div class="image-container">
+            <img src="asset/sekolah1.jpeg" alt="Deskripsi Gambar">
+        </div>
+        <div class="text-container">
+            <h2>Tentang Kami</h2>
+            <p>
+                Peralatan jurusan yang sering digunakan dalam sekolah atau saat jam pelajaran
+            </p>
+        </div>
+    </section>
+    <section class="produk-section" id="comingsoon">
+        <h2>Barang</h2>
+        <div class="produk-container">
+            <div class="produk-card">
+                <img src="asset/laptop.jpg" alt="laptop">
+                <h3>Laptop</h3>
+                <h4>Lenovo S145</h4>
+            </div>
+            <div class="produk-card">
+                <img src="asset/proyektor.jpg" alt="proyektor">
+                <h3>Proyektor Lcd</h3>
+                <h4>Epson</h4>
+            </div>
+                <div class="produk-card">
+                    <img src="asset/stopkontak.jpg" alt="kabel">
+                    <h3>Stop kontak</h3>
+                    <h4>Uticon</h4>
+                </div>
+        </div>
+    </section>
+    <script>
+        // deklarasi tombol dan menu
+        const tombol = document.querySelector(".tombol");
+        const menu = document.querySelector(".menu");
+
+        // membuat event click
+        // pada saat tombol diclick, tambahkan class aktif pada class menu
+        // saat diklik lagi, maka class aktif dihilangkan dari class menu (togle)
+        tombol.addEventListener("click", () => {
+            menu.classList.toggle("aktif");
+        });
+    </script>
+</body>
+</html>

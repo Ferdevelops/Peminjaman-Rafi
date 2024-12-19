@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+    <nav class="Navbar">
+        <div class="container">
+            <a>Kantor RPL</a>
+
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#tentang">Tentang</a></li>
+                <li><a href="../index.html#comingsoon">Barang</a></li>
+                <li><a href="peminjaman.html">Daftar</a></li>
+                <li><a href="#">Data Peminjaman</a></li>
+                <li><a href="databarang.html">Data Barang</a></li>
+                <li><a href="kontak_kami.html">Saran & Kritik</a></li>
+            </ul>
+            <div class="tombol">&#9776;</div>
+        </div>
+    </nav>
+    <section class="contact-section" id="contact">
+        <h2 style="color: white;">Data Peminjaman</h2>
+        <div class="contact-form">
+            <form method="GET"  id="myForm">
+                <div class="form-group">
+                    <label for="name">Nama Peminjam</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="petugas">Nama Petugas</label>
+                    <input type="text" id="petugas" name="petugas" required />
+                </div>
+                <div class="form-group">
+                    <label for="kelas">Kelas</label>
+                    <input type="text" id="kelas" name="kelas" required />
+                </div>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Peminjaman</label>
+                    <input type="date" id="tanggal" name="tanggal" required />
+                </div>
+                <div class="form-group">
+                    <label for="peminjaman">Jam Peminjaman</label>  
+                    <input type="time" id="peminjaman" name="peminjaman" required />
+                </div>
+                <div class="form-group">
+                    <label for="barang">Nama Barang</label>
+                    <select name="barang" id="barang">
+                        <option value="laptop">Laptop</option>
+                        <option value="proyektor">Proyektor Lcd</option>
+                        <option value="stop kontak">Stop kontak</option>
+                        <option value="speaker">Speaker</option>
+                        <option value="keyboard">Keyboard</option>
+                        <option value="kipas">Kipas Angin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah barang</label>
+                    <select name="jumlah" id="jumlah">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" required />
+                </div>
+                <button type="button" class="btn-primary" onclick="addData()">Simpan</button>
+                <!-- <butto1n type="submit" class="btn-primary">Kirim</butto1n> -->
+                <h3>Data Pengguna</h3>
+                <table border="1" id="user Table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Nama Petugas</th>
+                            <th>Kelas</th>
+                            <th>Tanggal Peminjaman</th>
+                            <th>Jam Peminjaman</th>
+                            <th>Nama Barang</th>
+                            <th>Jumlah barang</th>
+                            <th>alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </form>
+            <button class="btn-primary" onclick="konfirmasi()">Konfirmasi</button>
+        </div>
+        
+    </section>
+    <script type="text/javascript">
+    // deklarasi tombol dan menu
+const tombol = document.querySelector(".tombol");
+const menu = document.querySelector(".menu");
+const form = document.getElementById("myForm");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const urlParams = new URLSearchParams();
+    formData.forEach((value, key) => {
+        urlParams.append(key, value);
+    });
+    const url = `formulir.html?${urlParams.toString()}`;
+    window.location.href = url;
+});
+
+// membuat event click
+tombol.addEventListener("click", () => {
+    menu.classList.toggle("aktif");
+});
+
+let users = []; // Array untuk menyimpan data pengguna sementara
+
+function addData() {
+    const name = document.getElementById('name').value;
+    const petugas = document.getElementById('petugas').value;
+    const kelas = document.getElementById('kelas').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const peminjaman = document.getElementById('peminjaman').value;
+    const barang = document.getElementById('barang').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const alamat = document.getElementById('alamat').value;
+
+    if (name && petugas && kelas && tanggal && peminjaman && barang && jumlah && alamat) {
+        users.push({ name, petugas, kelas, tanggal, peminjaman, barang, jumlah, alamat });
+        document.getElementById("name").value = '';
+        document.getElementById("petugas").value = '';
+        document.getElementById("kelas").value = '';
+        document.getElementById("tanggal").value = '';
+        document.getElementById("peminjaman").value = '';
+        document.getElementById("barang").value = '';
+        document.getElementById("jumlah").value = '';
+        document.getElementById("alamat").value = '';
+        displayData();
+    } else {
+        alert("Harap isi semua data");
+    }
+}
+
+function displayData() {
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
+    users.forEach((user, index) => {
+        tableBody.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${user.name}</td>
+            <td>${user.petugas}</td>
+            <td>${user.kelas}</td>
+            <td>${user.tanggal}</td>
+            <td>${user.peminjaman}</td>
+            <td>${user.barang}</td>
+            <td>${user.jumlah}</td>
+            <td>${user.alamat}</td>
+            <td>
+                <button class="btn-primary" onclick="editData(${index})">Edit</button>
+                <button class="btn-primary" onclick="deleteData(${index})">Hapus</button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+function editData(index) {
+    const user = users[index];
+    document.getElementById("name").value = user.name;
+    document.getElementById("petugas").value = user.petugas;
+    document.getElementById("kelas").value = user.kelas;
+    document.getElementById("tanggal").value = user.tanggal;
+    document.getElementById("peminjaman").value = user.peminjaman;
+    document.getElementById("barang").value = user.barang;
+    document.getElementById("jumlah").value = user.jumlah;
+    document.getElementById("alamat").value = user.alamat;
+
+
+    deleteData(index);
+}
+
+function deleteData(index) {
+    users.splice(index, 1);
+    displayData();
+}
+
+function konfirmasi() {
+    const tableRows = document.querySelectorAll("#tableBody tr");
+    let data = [];
+
+    tableRows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const rowData = {
+            name: cells[1].innerText,
+            petugas: cells[2].innerText,
+            kelas: cells[3].innerText,
+            tanggal: cells[4].innerText,
+            peminjaman: cells[5].innerText,
+            barang: cells[6].innerText,
+            jumlah: cells[7].innerText,
+            alamat: cells[8].innerText
+        };
+        data.push(rowData);
+    });
+
+    const queryString = data.map((item, index) => 
+        `data[${index}][name]=${encodeURIComponent(item.name)}&` +
+        `data[${index}][petugas]=${encodeURIComponent(item.petugas)}&` +
+        `data[${index}][kelas]=${encodeURIComponent(item.kelas)}&` +
+        `data[${index}][tanggal]=${encodeURIComponent(item.tanggal)}&` +
+        `data[${index}][peminjaman]=${encodeURIComponent(item.peminjaman)}&` +
+        `data[${index}][barang]=${encodeURIComponent(item.barang)}&` +
+        `data[${index}][jumlah]=${encodeURIComponent(item.jumlah)}&` +
+        `data[${index}][alamat]=${encodeURIComponent(item.alamat)}`
+    ).join("&");
+
+    window.location.href = `struk.html?${queryString}`;
+}
+    </script>
+</body>
+</html>

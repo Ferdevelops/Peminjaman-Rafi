@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Buku</title>
+    <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">  <b class="logo">Kantor RPL</b>
+    
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#tentang">Tentang</a></li>
+                <li><a href="../index.html#comingsoon">Barang</a></li>
+                <li><a href="#">Daftar</a></li>
+                <li><a href="datapeminjaman.html">Data Peminjaman</a></li>
+                <li><a href="databarang.html">Data Barang</a></li>
+                <li><a href="kontak_kami.html">Saran & Kritik</a></li>
+            </ul>
+            <div class="tombol">&#9776;</div>
+        </div>
+    </nav>
+    <section class="produk-section" id="produk">
+        <h2>Daftar Barang</h2>
+        <div class="produk-container">
+            <div class="produk-card">
+                <img src="../asset/laptop.jpg" alt="laptop"  />
+                <h3>Laptop</h3>
+                <h4>Lenovo S145</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+            <div class="produk-card">
+                <img src="../asset/proyektor.jpg" alt="proyektor" />
+                <h3>Proyektor Lcd</h3>
+                <h4>Epson</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+            <div class="produk-card">
+                <img src="../asset/stopkontak.jpg" alt="kabel" />
+                <h3>Stop kontak</h3>
+                <h4>Uticon</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+            <div class="produk-card">
+                <img src="../asset/jbl (1).jpg" alt="speaker"  />
+                <h3>Speaker</h3>
+                <h4>JBL</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+            <div class="produk-card">
+                <img src="../asset/keyboard.jpg" alt="keyboard" />
+                <h3>Keyboard</h3>
+                <h4>Hyper X</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+            <div class="produk-card">
+                <img src="../asset/kipas-transformed.jpeg" alt="kipas" />
+                <h3>Kipas Angin</h3>
+                <h4>Cosmos</h4>
+                <a href="datapeminjaman.html" class="btn-primary">Pinjam</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        const tombol = document.querySelector(".tombol");
+        const menu = document.querySelector(".menu");
+    
+        tombol.addEventListener("click", () => {
+            menu.classList.toggle("aktif");
+        });
+    </script>
+</body>
+</html>

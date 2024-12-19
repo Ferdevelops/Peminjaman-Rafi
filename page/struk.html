@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Peminjaman</title>
+    <link rel="stylesheet" href="../index.css">
+    <style>
+        /* Tambahkan beberapa gaya untuk struk */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .struk {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .btn-print {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #608BC1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-print:hover {
+            background-color: #CBF1F5;
+        }
+
+        /* CSS untuk menyembunyikan tombol saat mencetak */
+        @media print {
+            .btn-print {
+                display: none; /* Sembunyikan tombol cetak */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="struk">
+        <h2>Struk Peminjaman</h2>
+        <div id="name"></div>
+        <div id="kelas"></div>
+        <div id="tanggal"></div>
+        <div id="petugas"></div>
+        <div id="peminjaman"></div>
+        <div id="barang"></div>
+        <div id="jumlah"></div>
+    </div>
+    
+    <button class="btn-print" onclick="window.print()">Cetak Struk</button>
+
+    <script type="text/javascript">
+        // Mengambil data dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const data = [];
+        urlParams.forEach((value, key) => {
+            const match = key.match(/data\[(\d+)\]\[(\w+)\]/);
+            if (match) {
+                const index = match[1];
+                const field = match[2];
+                if (!data[index]) data[index] = {};
+                data[index][field] = value;
+            }
+        });
+
+        // Menampilkan data di halaman
+        data.forEach((item, index) => {
+            document.getElementById("name").innerHTML += `Nama: ${item.name}<br>`;
+            document.getElementById("kelas").innerHTML += `Kelas: ${item.kelas}<br>`;
+            document.getElementById("tanggal").innerHTML += `Tanggal: ${item.tanggal}<br>`;
+            document.getElementById("petugas").innerHTML += `Petugas: ${item.petugas}<br>`;
+            document.getElementById("peminjaman").innerHTML += `Jam Peminjaman: ${item.peminjaman}<br>`;
+            document.getElementById("barang").innerHTML += `Barang yang dipilih: ${item.barang}<br><br>`;
+            document.getElementById("jumlah").innerHTML += `Jumlah barang yang dipinjam: ${item.jumlah}<br><br>`;
+        });
+    </script>
+</body>
+</html>
